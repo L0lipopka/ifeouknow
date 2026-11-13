@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if you know — Секретный коктейльный бар в Йошкар-Оле | бул. Чавайна, 36</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Tenor Sans & Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Tenor Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        pitch: '#070504',
+                        espresso: '#110b08',
+                        ivory: '#f2eae1',
+                        taupe: '#9a8978',
+                        amberAccent: '#c8823b',
+                        negroniRed: '#7a1c1c',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #070504;
+            color: #f2eae1;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hairline border utility */
+        .hairline-border {
+            border-color: rgba(242, 234, 225, 0.12);
+        }
+
+        /* Cleanly crops top & bottom mobile UI bars from image_0dded9.jpg (warm backlit marble bar shelf) */
+        .crop-ig-bar {
+            position: relative;
+            overflow: hidden;
+            background-color: #110b08;
+        }
+        .crop-ig-bar > img.cropped-source {
+            position: absolute;
+            top: -38%;
+            left: 0;
+            width: 100%;
+            height: 176%;
+            max-width: none;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        /* Calibrated "!f" neon stage:
+           - Mobile (<1024px): увеличено пространство сверху, чтобы вывеска не липла к шапке и полностью помещалась в кадр.
+           - Desktop (>=1024px): корректное центрирование и масштаб без обрезки. */
+        .neon-stage {
+            position: relative;
+            overflow: hidden;
+            background-color: #000000;
+        }
+        .neon-stage > img.neon-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: contain;
+            object-position: center center;
+            transform: scale(0.92);
+            transform-origin: 50% 50%;
+            mix-blend-mode: lighten;
+            filter: contrast(1.25) brightness(1.05);
+        }
+        @media (min-width: 1024px) {
+            .neon-stage > img.neon-photo {
+                transform: scale(0.98) translateX(-10%);
+            }
+        }
+        .seamless-neon-vignette {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 74% 74% at 50% 50%, transparent 55%, #000000 96%),
+                linear-gradient(to right, #000000 0%, transparent 12%, transparent 86%, #000000 100%),
+                linear-gradient(to bottom, #000000 0%, transparent 8%, transparent 88%, #000000 100%);
+        }
+
+        /* Vertical tile for "!f" in Atmosphere */
+        .crop-ig-neon {
+            position: relative;
+            overflow: hidden;
+            background-color: #000000;
+        }
+        .crop-ig-neon > img.cropped-source {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: contain;
+            object-position: center center;
+        }
+
+        /* Warm amber-espresso color grade for the wide interior shot */
+        .warm-interior-grade {
+            filter: sepia(0.35) contrast(1.1) brightness(0.75);
+        }
+    </style>
+</head>
+<body class="bg-[#070504] text-[#f2eae1] selection:bg-[#c8823b] selection:text-[#070504]">
+
+    <!-- ==================== 1. ШАПКА ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#070504]/90 backdrop-blur-md border-b hairline-border">
+        <div class="max-w-[1280px] mx-auto px-5 sm:px-10 h-[76px] flex items-center justify-between">
+            
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-[38px] h-[38px] rounded-full bg-[#f2eae1] text-[#070504] flex flex-col items-center justify-center shrink-0 select-none">
+                    <span class="font-sans font-semibold text-[8px] leading-[1.05] tracking-[0.04em] uppercase text-[#070504]">IF YOU</span>
+                    <span class="font-sans font-semibold text-[8px] leading-[1.05] tracking-[0.04em] uppercase text-[#070504]">KNOW</span>
+                </div>
+                <span class="font-sans text-[19px] tracking-[0.06em] text-[#f2eae1] font-medium lowercase group-hover:text-[#c8823b] transition-colors">
+                    if you know
+                </span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-10 text-[12px] uppercase tracking-[0.16em] text-[#f2eae1]/80 font-normal">
+                <a href="#about" class="hover:text-[#c8823b] transition-colors">О баре</a>
+                <a href="#atmosphere" class="hover:text-[#c8823b] transition-colors">Атмосфера</a>
+                <a href="#menu" class="hover:text-[#c8823b] transition-colors">Меню</a>
+                <a href="#contacts" class="hover:text-[#c8823b] transition-colors">Контакты</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-6 text-right">
+                <a href="tel:+78362305910" class="text-[13px] tracking-[0.1em] text-[#f2eae1] hover:text-[#c8823b] transition-colors font-normal">
+                    30-59-10
+                </a>
+                <span class="text-[#9a8978] text-xs">|</span>
+                <span class="text-[12px] tracking-[0.06em] text-[#9a8978]">
+                    бул. Чавайна, 36
+                </span>
+            </div>
+
+            <button onclick="toggleMenu()" class="md:hidden p-2 text-[#f2eae1] hover:text-[#c8823b] focus:outline-none" aria-label="Меню">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-nav" class="hidden md:hidden bg-[#070504] border-t hairline-border px-5 py-7">
+            <nav class="flex flex-col space-y-4 text-xs uppercase tracking-[0.16em] text-[#f2eae1]">
+                <a href="#about" onclick="toggleMenu()" class="py-1 hover:text-[#c8823b]">О баре</a>
+                <a href="#atmosphere" onclick="toggleMenu()" class="py-1 hover:text-[#c8823b]">Атмосфера</a>
+                <a href="#menu" onclick="toggleMenu()" class="py-1 hover:text-[#c8823b]">Меню</a>
+                <a href="#contacts" onclick="toggleMenu()" class="py-1 hover:text-[#c8823b]">Контакты</a>
+            </nav>
+            <div class="mt-6 pt-5 border-t hairline-border flex items-center justify-between text-xs text-[#9a8978]">
+                <a href="tel:+78362305910" class="text-[#f2eae1] font-normal tracking-wider">30-59-10</a>
+                <span>бул. Чавайна, 36</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 2. ПЕРВЫЙ ЭКРАН ==================== -->
+    <section class="relative md:min-h-screen flex flex-col justify-center pt-[76px] border-b hairline-border overflow-hidden">
+        <div class="absolute inset-0 z-0 crop-ig-bar">
+            <img src="0dded9.jpg"
+                 onerror="this.onerror=null; this.classList.remove('cropped-source'); this.className='w-full h-full object-cover object-center'; this.src='https://avatars.mds.yandex.net/get-altay/12594216/2a00000191c81e74ac149d23fa43c329f375/XXXL';"
+                 alt="Барная стойка if you know"
+                 class="cropped-source">
+            <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(7,5,4,0.93) 0%, rgba(7,5,4,0.68) 54%, rgba(7,5,4,0.35) 100%), linear-gradient(180deg, rgba(7,5,4,0.35) 0%, rgba(7,5,4,0) 65%, #000000 100%);"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[1280px] mx-auto px-5 sm:px-10 w-full pt-16 pb-14 sm:py-20 md:py-28">
+            <div class="max-w-[720px]">
+                <h1 class="font-display text-4xl sm:text-6xl md:text-[64px] font-normal text-[#f2eae1] leading-[1.12] tracking-[0.02em] mb-5 sm:mb-7">
+                    Секретный коктейльный бар
+                    <span class="block mt-1.5 text-[#e5c39c] tracking-[0.06em] lowercase">if you know</span>
+                </h1>
+                <p class="text-base sm:text-[18px] text-[#f2eae1]/85 font-light leading-[1.7] max-w-[560px] mb-8 sm:mb-10">
+                    Камерное пространство со входом со двора, приглушённым светом свечей и авторской коктейльной картой.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
+                    <a href="https://t.me/if_you_know_bar_bot"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="px-9 py-4 bg-[#f2eae1] hover:bg-[#c8823b] text-[#070504] text-[12px] uppercase tracking-[0.16em] font-medium text-center transition-colors rounded-none">
+                        Забронировать столик
+                    </a>
+                    <a href="#menu"
+                       class="px-9 py-4 border border-[#f2eae1]/40 hover:border-[#f2eae1] text-[#f2eae1] text-[12px] uppercase tracking-[0.16em] font-normal text-center transition-colors rounded-none">
+                        Посмотреть меню
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. О БАРЕ ==================== -->
+    <section id="about" class="pt-14 pb-16 sm:pt-20 md:py-28 bg-[#000000] border-b hairline-border overflow-hidden">
+        <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+                
+                <div class="lg:col-span-5 w-full flex items-center justify-center lg:justify-start">
+                    <div class="neon-stage w-full max-w-[340px] sm:max-w-[420px] lg:max-w-none h-[380px] sm:h-[460px] lg:h-[620px] mx-auto flex items-center justify-center mt-4 lg:mt-0">
+                        <img src="785d25.jpg"
+                             onerror="this.onerror=null; this.classList.remove('neon-photo'); this.className='w-full h-full object-cover object-center'; this.src='https://avatars.mds.yandex.net/get-altay/11385005/2a00000191c81e7649679dd461ea9115ce23/XXXL';"
+                             alt="Неоновый знак !f в баре if you know"
+                             class="neon-photo">
+                        <div class="seamless-neon-vignette"></div>
+                    </div>
+                </div>
+
+                <div class="lg:col-start-7 lg:col-span-6 lg:pl-8 xl:pl-14 flex flex-col justify-center">
+                    <p class="text-[11px] uppercase tracking-[0.22em] text-[#c8823b] mb-4 font-medium">
+                        О БАРЕ
+                    </p>
+                    <h2 class="font-display text-3xl sm:text-5xl font-normal text-[#f2eae1] leading-[1.15] mb-7">
+                        Для тех, кто знает
+                    </h2>
+
+                    <div class="space-y-5 text-base sm:text-[17px] text-[#f2eae1]/80 font-light leading-[1.75] mb-12 max-w-[640px]">
+                        <p>
+                            Добро пожаловать в аутентичный коктейльный бар и гастропаб в самом центре Йошкар-Олы на бульваре Чавайна, 36. Мы создали камерное место с приглушённым светом, куда приходят провести вечер с друзьями или назначить свидание.
+                        </p>
+                        <p>
+                            За барной стойкой смешиваем авторские коктейли и проверенную классику, а каждые три месяца полностью обновляем сезонную карту. Бронируйте столики в нашем Telegram или по телефону <a href="tel:+78362305910" class="text-[#f2eae1] border-b border-[#f2eae1]/30 hover:border-[#c8823b] transition-colors whitespace-nowrap">30-59-10</a>.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 xl:gap-12 pt-9 border-t hairline-border">
+                        <div class="min-w-0">
+                            <div class="text-[11px] uppercase tracking-[0.18em] text-[#c8823b] font-medium mb-2.5">
+                                Сезонная карта
+                            </div>
+                            <div class="font-display text-xl xl:text-[24px] text-[#f2eae1] leading-snug mb-2.5">
+                                Раз в 3 месяца
+                            </div>
+                            <p class="text-[13px] text-[#9a8978] leading-[1.6] font-light">
+                                Полностью обновляем концепцию и коктейльное меню каждый сезон.
+                            </p>
+                        </div>
+
+                        <div class="min-w-0">
+                            <div class="text-[11px] uppercase tracking-[0.18em] text-[#c8823b] font-medium mb-2.5">
+                                Чёрный четверг
+                            </div>
+                            <div class="font-display text-xl xl:text-[24px] text-[#f2eae1] leading-snug mb-2.5">
+                                2 за 600&nbsp;₽
+                            </div>
+                            <p class="text-[13px] text-[#9a8978] leading-[1.6] font-light">
+                                Каждый четверг готовим два коктейля по специальной цене.
+                            </p>
+                        </div>
+
+                        <div class="min-w-0">
+                            <div class="text-[11px] uppercase tracking-[0.18em] text-[#c8823b] font-medium mb-2.5">
+                                Аренда бара
+                            </div>
+                            <div class="font-display text-xl xl:text-[24px] text-[#f2eae1] leading-snug mb-2.5">
+                                Закрытый формат
+                            </div>
+                            <p class="text-[13px] text-[#9a8978] leading-[1.6] font-light">
+                                Предоставляем возможность арендовать бар под любое ваше мероприятие.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. АТМОСФЕРА ==================== -->
+    <section id="atmosphere" class="py-24 md:py-32 bg-[#110b08] border-b hairline-border">
+        <div class="max-w-[1280px] mx-auto px-5 sm:px-10">
+            
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                <div>
+                    <p class="text-[11px] uppercase tracking-[0.22em] text-[#c8823b] mb-3 font-medium">ИНТЕРЬЕР И ДЕТАЛИ</p>
+                    <h2 class="font-display text-3xl sm:text-5xl font-normal text-[#f2eae1] leading-none">
+                        Атмосфера
+                    </h2>
+                </div>
+                <a href="https://t.me/ifyouknowyouknowyouknow"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-xs uppercase tracking-[0.16em] text-[#9a8978] hover:text-[#f2eae1] transition-colors">
+                    Telegram-канал бара →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                
+                <div class="md:col-span-6 h-[420px] sm:h-[620px] crop-ig-bar">
+                    <img src="0dded9.jpg"
+                         onerror="this.onerror=null; this.classList.remove('cropped-source'); this.className='w-full h-full object-cover object-center'; this.src='https://avatars.mds.yandex.net/get-altay/12594216/2a00000191c81e74ac149d23fa43c329f375/XXXL';"
+                         alt="Мраморная стена и подсветка бутылок в баре if you know"
+                         class="cropped-source">
+                </div>
+
+                <div class="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="relative h-[420px] sm:h-[620px] overflow-hidden bg-[#070504]">
+                        <img src="image.png.webp"
+                             onerror="this.onerror=null; this.src='https://static.tildacdn.info/tild3930-3939-4733-b637-386131333538/noroot.png';"
+                             alt="Красный неон и барная стойка с шейкерами в баре if you know"
+                             class="w-full h-full object-cover object-center">
+                    </div>
+
+                    <div class="relative h-[420px] sm:h-[620px] crop-ig-neon">
+                        <img src="785d25.jpg"
+                             onerror="this.onerror=null; this.classList.remove('cropped-source'); this.className='w-full h-full object-cover object-center'; this.src='https://avatars.mds.yandex.net/get-altay/11385005/2a00000191c81e7649679dd461ea9115ce23/XXXL';"
+                             alt="Знак !f в интерьере if you know"
+                             class="cropped-source">
+                    </div>
+                </div>
+
+                <div class="md:col-span-12 h-[300px] sm:h-[460px] overflow-hidden bg-[#070504]">
+                    <img src="noroot.png"
+                         onerror="this.onerror=null; this.src='https://avatars.mds.yandex.net/get-altay/12594216/2a00000191c81e74ac149d23fa43c329f375/XXXL';"
+                         alt="Зал бара if you know"
+                         class="w-full h-full object-cover object-center warm-interior-grade">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. МЕНЮ БАРА ==================== -->
+    <section id="menu" class="relative py-28 md:py-36 bg-[#070504] border-b hairline-border overflow-hidden">
+        <div class="absolute inset-0 z-0 crop-ig-bar opacity-30">
+            <img src="0dded9.jpg"
+                 onerror="this.onerror=null; this.classList.remove('cropped-source'); this.className='w-full h-full object-cover object-center'; this.src='https://avatars.mds.yandex.net/get-altay/12594216/2a00000191c81e74ac149d23fa43c329f375/XXXL';"
+                 alt="Меню бара If you know"
+                 class="cropped-source">
+        </div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#070504] via-[#070504]/70 to-[#070504]"></div>
+
+        <div class="relative z-10 max-w-[760px] mx-auto px-5 sm:px-10 text-center">
+            <h2 class="font-display text-3xl sm:text-5xl md:text-[52px] font-normal text-[#f2eae1] leading-tight mb-5">
+                Меню бара if you know
+            </h2>
+            <p class="text-base sm:text-[17px] text-[#9a8978] font-light leading-relaxed mb-10 max-w-[560px] mx-auto">
+                60+ видов напитков, авторские коктейли и закуски. Меню обновляется каждые три месяца.
+            </p>
+            <a href="https://t.me/ifyouknowyouknowyouknow"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-block px-10 py-4 bg-[#f2eae1] hover:bg-[#c8823b] text-[#070504] text-[12px] uppercase tracking-[0.16em] font-medium transition-colors rounded-none">
+                Посмотреть меню
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== 6. КОНТАКТЫ ==================== -->
+    <section id="contacts" class="py-24 md:py-32 bg-[#070504]">
+        <div class="max-w-[1280px] mx-auto px-5 sm:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                
+                <div class="lg:col-span-5">
+                    <p class="text-[11px] uppercase tracking-[0.22em] text-[#c8823b] mb-3 font-medium">ЛОКАЦИЯ</p>
+                    <h2 class="font-display text-3xl sm:text-5xl font-normal text-[#f2eae1] leading-none mb-10">
+                        Контакты
+                    </h2>
+
+                    <div class="space-y-6 border-t hairline-border pt-8 text-sm sm:text-base">
+                        <div>
+                            <div class="text-[11px] uppercase tracking-[0.16em] text-[#9a8978] mb-1">Адрес</div>
+                            <div class="text-[#f2eae1] font-light">
+                                Йошкар-Ола, бульвар Чавайна, 36 <span class="text-[#9a8978]">(цокольный этаж, вход со двора)</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="text-[11px] uppercase tracking-[0.16em] text-[#9a8978] mb-1">Телефон для брони</div>
+                            <div class="text-[#f2eae1] font-light space-x-3">
+                                <a href="tel:+78362305910" class="hover:text-[#c8823b] transition-colors">30-59-10</a>
+                                <span class="text-[#9a8978]">·</span>
+                                <a href="tel:+79677575910" class="hover:text-[#c8823b] transition-colors">+7 (967) 757-59-10</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="text-[11px] uppercase tracking-[0.16em] text-[#9a8978] mb-1">Режим работы</div>
+                            <div class="text-[#f2eae1] font-light">
+                                Чт, Вс: 19:00 – 01:00<br>
+                                Пт, Сб: 19:00 – 03:00
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="text-[11px] uppercase tracking-[0.16em] text-[#9a8978] mb-1">Telegram</div>
+                            <a href="https://t.me/ifyouknowyouknowyouknow"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="text-[#f2eae1] hover:text-[#c8823b] transition-colors font-light">
+                                @ifyouknowyouknowyouknow
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 pt-2">
+                        <a href="https://t.me/if_you_know_bar_bot"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-block w-full sm:w-auto text-center px-10 py-4 bg-[#f2eae1] hover:bg-[#c8823b] text-[#070504] text-[12px] uppercase tracking-[0.16em] font-medium transition-colors rounded-none">
+                            Забронировать столик
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 w-full">
+                    <div class="relative w-full h-[380px] sm:h-[460px] bg-[#110b08] border hairline-border overflow-hidden">
+                        <iframe
+                            title="Карта — бар If you know, бульвар Чавайна, 36, Йошкар-Ола"
+                            src="https://yandex.ru/map-widget/v1/?ll=47.886064%2C56.634150&z=17&oid=90779814244&ol=biz"
+                            class="absolute -top-[78px] -left-[2px] w-[calc(100%+4px)] h-[calc(100%+360px)] border-0"
+                            allowfullscreen="true"
+                            loading="lazy">
+                        </iframe>
+                        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-[#070504]/80 to-transparent"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. ПОДВАЛ ==================== -->
+    <footer class="bg-[#070504] border-t hairline-border py-8">
+        <div class="max-w-[1280px] mx-auto px-5 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9a8978] font-light">
+            <div class="flex items-center gap-3">
+                <div class="w-[28px] h-[28px] rounded-full bg-[#f2eae1] text-[#070504] flex flex-col items-center justify-center shrink-0 select-none">
+                    <span class="font-sans font-semibold text-[6px] leading-[1.05] tracking-[0.04em] uppercase text-[#070504]">IF YOU</span>
+                    <span class="font-sans font-semibold text-[6px] leading-[1.05] tracking-[0.04em] uppercase text-[#070504]">KNOW</span>
+                </div>
+                <span>© if you know · Йошкар-Ола, бул. Чавайна, 36</span>
+            </div>
+            <div class="text-center sm:text-right">
+                18+ Чрезмерное употребление алкоголя вредит вашему здоровью
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
